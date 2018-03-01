@@ -57,9 +57,33 @@ include src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/flags.make
 
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/flags.make
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o: ../src/pPrimeFactor/PrimeEntry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o"
+	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o -c /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.cpp
+
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.i"
+	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.cpp > CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.i
+
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.s"
+	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.cpp -o CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.s
+
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.requires:
+
+.PHONY : src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.requires
+
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.provides: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.requires
+	$(MAKE) -f src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.provides.build
+.PHONY : src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.provides
+
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.provides.build: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o
+
+
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/flags.make
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o: ../src/pPrimeFactor/PrimeFactor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o"
 	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o -c /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeFactor.cpp
 
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.i: cmake_force
@@ -83,7 +107,7 @@ src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o.provides.build: s
 
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/flags.make
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o: ../src/pPrimeFactor/PrimeFactor_Info.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o"
 	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o -c /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeFactor_Info.cpp
 
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.i: cmake_force
@@ -107,7 +131,7 @@ src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o.provides.bui
 
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/flags.make
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o: ../src/pPrimeFactor/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o"
 	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pPrimeFactor.dir/main.cpp.o -c /home/ltencate/moos-ivp-extend/src/pPrimeFactor/main.cpp
 
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.i: cmake_force
@@ -131,6 +155,7 @@ src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o.provides.build: src/pPri
 
 # Object files for target pPrimeFactor
 pPrimeFactor_OBJECTS = \
+"CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o" \
 "CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o" \
 "CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o" \
 "CMakeFiles/pPrimeFactor.dir/main.cpp.o"
@@ -138,13 +163,14 @@ pPrimeFactor_OBJECTS = \
 # External object files for target pPrimeFactor
 pPrimeFactor_EXTERNAL_OBJECTS =
 
+../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o
 ../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o
 ../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o
 ../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o
 ../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make
 ../bin/pPrimeFactor: /home/ltencate/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
 ../bin/pPrimeFactor: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pPrimeFactor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ltencate/moos-ivp-extend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../../bin/pPrimeFactor"
 	cd /home/ltencate/moos-ivp-extend/build/src/pPrimeFactor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pPrimeFactor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -152,6 +178,7 @@ src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build: ../bin/pPrimeFactor
 
 .PHONY : src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build
 
+src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/requires: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o.requires
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/requires: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor.cpp.o.requires
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/requires: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeFactor_Info.cpp.o.requires
 src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/requires: src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/main.cpp.o.requires

@@ -125,6 +125,33 @@ pPrimeFactor/fast:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build
 .PHONY : pPrimeFactor/fast
 
+PrimeEntry.o: PrimeEntry.cpp.o
+
+.PHONY : PrimeEntry.o
+
+# target to build an object file
+PrimeEntry.cpp.o:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.o
+.PHONY : PrimeEntry.cpp.o
+
+PrimeEntry.i: PrimeEntry.cpp.i
+
+.PHONY : PrimeEntry.i
+
+# target to preprocess a source file
+PrimeEntry.cpp.i:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.i
+.PHONY : PrimeEntry.cpp.i
+
+PrimeEntry.s: PrimeEntry.cpp.s
+
+.PHONY : PrimeEntry.s
+
+# target to generate assembly for a file
+PrimeEntry.cpp.s:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/build.make src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/PrimeEntry.cpp.s
+.PHONY : PrimeEntry.cpp.s
+
 PrimeFactor.o: PrimeFactor.cpp.o
 
 .PHONY : PrimeFactor.o
@@ -215,6 +242,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pPrimeFactor"
+	@echo "... PrimeEntry.o"
+	@echo "... PrimeEntry.i"
+	@echo "... PrimeEntry.s"
 	@echo "... PrimeFactor.o"
 	@echo "... PrimeFactor.i"
 	@echo "... PrimeFactor.s"

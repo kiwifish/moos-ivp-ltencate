@@ -3,6 +3,7 @@
 INVOCATION_ABS_DIR=`pwd`
 BUILD_TYPE="None"
 CMD_LINE_ARGS=""
+CXXFLAGS="-std=gnu++11"
 
 #-------------------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments

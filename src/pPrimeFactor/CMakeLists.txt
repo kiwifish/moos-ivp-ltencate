@@ -4,6 +4,7 @@
 #--------------------------------------------------------
 
 SET(SRC
+  PrimeEntry.cpp
   PrimeFactor.cpp
   PrimeFactor_Info.cpp
   main.cpp

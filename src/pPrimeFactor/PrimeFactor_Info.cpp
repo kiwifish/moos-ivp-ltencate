@@ -20,9 +20,9 @@ void showSynopsis()
 {
   blk("SYNOPSIS:                                                       ");
   blk("------------------------------------                            ");
-  blk("  The pPrimeFactor application is used for               ");
-  blk("                                                                ");
-  blk("                                                                ");
+  blk("  The pPrimeFactor application is used for calculating prime    ");
+  blk("  factors of a number. Subscribed for NUM_VALUE, outputs        ");
+  blk("  PRIME_RESULT                                                  ");
   blk("                                                                ");
   blk("                                                                ");
 }

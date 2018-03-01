@@ -6,8 +6,34 @@
 
 #IncludeRegexTransform: 
 
+/home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.cpp
+stdint.h
+/home/ltencate/moos-ivp-extend/src/pPrimeFactor/stdint.h
+cstdlib
+-
+PrimeEntry.h
+/home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.h
+
+/home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.h
+string
+-
+vector
+-
+cstdlib
+-
+math.h
+-
+iostream
+-
+sstream
+-
+
 /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeFactor.cpp
 iterator
+-
+list
+-
+string
 -
 MBUtils.h
 /home/ltencate/moos-ivp-extend/src/pPrimeFactor/MBUtils.h
@@ -17,6 +43,10 @@ PrimeFactor.h
 /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeFactor.h
 MOOS/libMOOS/MOOSLib.h
 /home/ltencate/moos-ivp-extend/src/pPrimeFactor/MOOS/libMOOS/MOOSLib.h
+list
+-
+PrimeEntry.h
+/home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeEntry.h
 
 /home/ltencate/moos-ivp-extend/src/pPrimeFactor/PrimeFactor_Info.cpp
 cstdlib

@@ -96,7 +96,7 @@ string PrimeEntry::getReport()
 
   num_result += ",solve_time=";
 
-  double calcTime = (this->m_ctime - this->m_rtime)*1000;
+  double calcTime = (this->m_ctime - this->m_rtime);
   ostringstream time;
 
   time << calcTime;

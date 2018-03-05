@@ -134,7 +134,7 @@ bool PrimeFactor::Iterate()
       	      cout << num_result << endl;
 	      //increment calculated index here
 	      
-      	      m_Comms.Notify("NUM_RESULT", num_result);
+      	      m_Comms.Notify("PRIME_RESULT", num_result);
 	      cout << "notified" << endl;
 	      it = m_num_val_messages.erase(it);
       	      //cout << "message gone" << endl;
@@ -183,7 +183,7 @@ bool PrimeFactor::OnStartUp()
 
 void PrimeFactor::RegisterVariables()
 {
-  m_Comms.Register("NUM_RESULT",0);
+  m_Comms.Register("PRIME_RESULT",0);
   m_Comms.Register("NUM_VALUE",0); // Register("FOOBAR", 0);
 }
 

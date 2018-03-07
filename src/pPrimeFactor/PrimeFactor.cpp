@@ -143,7 +143,7 @@ bool PrimeFactor::Iterate()
       	    }
 	  else {
 	    entry.m_started = true;
-	    entry.m_part_way += 10;
+	    entry.m_part_way += 10000;
 	    ++it;
 	  }
 	  //numerical_val ++

@@ -44,12 +44,10 @@ bool  PrimeEntry::factor(unsigned long int max_steps)
       i = 2;
     }
 
-  cout << "before for" << endl;
 
   
     for (i; i <= int(sqrt(numerical_val)) && max_steps > 0; i++) {
 
-      cout << "in for"<< endl;
     max_steps = max_steps -1;
     // cout << max_steps << endl;
     // cout << i << endl;

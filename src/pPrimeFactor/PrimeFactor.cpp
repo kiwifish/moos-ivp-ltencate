@@ -41,7 +41,6 @@ bool PrimeFactor::OnNewMail(MOOSMSG_LIST &NewMail)
 {
   MOOSMSG_LIST::iterator p;
 
-  // int recieved_index = 1; // maybe initialize this as a class variable instead
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
 
@@ -50,8 +49,7 @@ bool PrimeFactor::OnNewMail(MOOSMSG_LIST &NewMail)
 
     if (key == "NUM_VALUE")
       {
-	//cout << "num_val msg recieved" << endl;
-        //PrimeEntry *mprime = new PrimeEntry;
+	
 	PrimeEntry mprime;
 	string sval = msg.GetString();
 	uint64_t numerical_val = strtoul(sval.c_str(), NULL, 0);
@@ -62,9 +60,7 @@ bool PrimeFactor::OnNewMail(MOOSMSG_LIST &NewMail)
 	mprime.setCalculatedIndex(0);
 	mprime.setDone(false);
 	mprime.m_started = false;
-	//cout << "recV" << endl;
-	//	cout << (MOOSTime()/1000) << endl;
-	mprime.setRTime(MOOSTime());
+	mprime.setRTime(MOOSTime()); //could've also initilized these with the constructor, unclear if there's a difference or preferred practice here.
 	
 	m_num_val_messages.push_back(mprime);
       }
@@ -122,34 +118,25 @@ bool PrimeFactor::Iterate()
       	{
           PrimeEntry& entry = *it;
 	  
-	  cout << "in the list loop" << endl;
 	  entry.factor(10000);
-	  cout << "outta factor" << endl;
 	  entry.setCTime(MOOSTime());
 	  
       	  if (entry.done())
       	    {
-	      cout << "in the if!" << endl;
 	      m_calculated_index += 1;
 	      entry.setCalculatedIndex(m_calculated_index);
       	      string num_result = entry.getReport();
-      	      cout << num_result << endl;
-	      //increment calculated index here
 	      
       	      m_Comms.Notify("PRIME_RESULT", num_result);
-	      cout << "notified" << endl;
 	      it = m_num_val_messages.erase(it);
-      	      //cout << "message gone" << endl;
       	    }
 	  else {
 	    entry.m_started = true;
 	    entry.m_part_way += 10000;
 	    ++it;
 	  }
-	  //numerical_val ++
       	}
       }
-  //cout << "iterat ending" << endl;
   
   return(true);
     

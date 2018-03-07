@@ -1,10 +1,6 @@
 
-// #include <iostream>   // For terminal I/O using cout                           
-// #include <math.h>
-// #include <vector>
-// #include <string>
 #include "stdint.h"
-#include <cstdlib>
+#include <cstdlib> // potentially should've just included these in primeEntry.h but when I was doing that I was getting weird errors about uint64 not being a type
 #include "PrimeEntry.h"
 
 using namespace std;
@@ -12,61 +8,42 @@ using namespace std;
 bool  PrimeEntry::factor(unsigned long int max_steps)
 {
 
-  //cout << max_steps << endl;
   uint64_t numerical_val;
   
-  int i;
-  //cout << this->m_factors.size() << endl;
-
-  // if(this->m_factors.size() >0 ){
-  //   numerical_val = this->m_factors.back();
-  // }
-  if (this->m_started == true && this->m_factors.size()>0){
-    cout << "started & not prime" << endl;
+  int i; //incrementer for counting through loop
+ 
+  if (this->m_started == true && this->m_factors.size()>0){ //started & not prime
     numerical_val = this->getOriginalVal()/this->m_factors.back();
     i = this->m_part_way;
-    cout << numerical_val << endl;
-    cout << i << endl;
   }
-  else if (this->m_started == true)
+  else if (this->m_started == true) //started & prime
     {
-      cout << "started!" << endl;
       numerical_val = this->getOriginalVal();
-      // this->m_factors.pop_back();
       i = this->m_part_way;
-      cout << numerical_val << endl;
-      cout << i << endl;
     }
-  else
+  else //first iteration
     {
       numerical_val = this->getOriginalVal(); // don't really need the accessor here
-      cout << "msg in iterate" << endl;
       i = 2;
     }
 
 
   
-    for (i; i <= int(sqrt(numerical_val)) && max_steps > 0; i++) {
+  for (;i <= int(sqrt(numerical_val)) && max_steps > 0; i++) {
 
     max_steps = max_steps -1;
-    // cout << max_steps << endl;
-    // cout << i << endl;
-    //cout << i << endl;
-    //cout << numerical_val << endl;
-    // cout << sqrt(numerical_val) << endl;
-
     if (numerical_val % i ==0 && i == int(sqrt(numerical_val))){
       this->setFactor(i);
       this->setFactor(i);
       this->setDone(true);
       return false;
     }
-    else if (i == int(sqrt(numerical_val))){ //switch these functions 
+    else if (i == int(sqrt(numerical_val))){
       this->setFactor(numerical_val);
       this->setDone(true);
       return false;
     }
-    else if (numerical_val % i == 0) { // oh god why
+    else if (numerical_val % i == 0) { 
       this->setFactor(i);
       cout << i << endl;
       numerical_val = numerical_val/i;

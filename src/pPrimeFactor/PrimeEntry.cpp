@@ -12,15 +12,30 @@ using namespace std;
 bool  PrimeEntry::factor(unsigned long int max_steps)
 {
 
-  cout << max_steps << endl;
+  //cout << max_steps << endl;
   uint64_t numerical_val;
   
   int i;
-  if (this->started())
+  //cout << this->m_factors.size() << endl;
+
+  // if(this->m_factors.size() >0 ){
+  //   numerical_val = this->m_factors.back();
+  // }
+  if (this->m_started == true && this->m_factors.size()>0){
+    cout << "started & not prime" << endl;
+    numerical_val = this->getOriginalVal()/this->m_factors.back();
+    i = this->m_part_way;
+    cout << numerical_val << endl;
+    cout << i << endl;
+  }
+  else if (this->m_started == true)
     {
-      numerical_val = this->getFactor();
-      this->m_factors.pop_back();
-      i = this->m_start_index;
+      cout << "started!" << endl;
+      numerical_val = this->getOriginalVal();
+      // this->m_factors.pop_back();
+      i = this->m_part_way;
+      cout << numerical_val << endl;
+      cout << i << endl;
     }
   else
     {
@@ -29,14 +44,17 @@ bool  PrimeEntry::factor(unsigned long int max_steps)
       i = 2;
     }
 
+  cout << "before for" << endl;
 
   
     for (i; i <= int(sqrt(numerical_val)) && max_steps > 0; i++) {
+
+      cout << "in for"<< endl;
     max_steps = max_steps -1;
     // cout << max_steps << endl;
     // cout << i << endl;
-    cout << i << endl;
-    cout << numerical_val << endl;
+    //cout << i << endl;
+    //cout << numerical_val << endl;
     // cout << sqrt(numerical_val) << endl;
 
     if (numerical_val % i ==0 && i == int(sqrt(numerical_val))){

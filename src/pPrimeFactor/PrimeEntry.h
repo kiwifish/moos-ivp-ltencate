@@ -40,6 +40,8 @@ class PrimeEntry
   unsigned int m_calculated_index;
   double     m_rtime;
   double     m_ctime;
+  double     m_part_way;
+  bool       m_started;
 
   std::vector<uint64_t> m_factors;
 };

@@ -50,7 +50,7 @@ bool PrimeFactor::OnNewMail(MOOSMSG_LIST &NewMail)
 
     if (key == "NUM_VALUE")
       {
-	cout << "num_val msg recieved" << endl;
+	//cout << "num_val msg recieved" << endl;
         //PrimeEntry *mprime = new PrimeEntry;
 	PrimeEntry mprime;
 	string sval = msg.GetString();
@@ -61,8 +61,9 @@ bool PrimeFactor::OnNewMail(MOOSMSG_LIST &NewMail)
 	mprime.setRecievedIndex(m_recieved_index);
 	mprime.setCalculatedIndex(0);
 	mprime.setDone(false);
+	mprime.m_started = false;
 	//cout << "recV" << endl;
-	cout << (MOOSTime()/1000) << endl;
+	//	cout << (MOOSTime()/1000) << endl;
 	mprime.setRTime(MOOSTime());
 	
 	m_num_val_messages.push_back(mprime);
@@ -116,13 +117,14 @@ bool PrimeFactor::Iterate()
     // do you have a number to read?
     {
  
-      cout << "out of the for" << endl;
+      // cout << "out of the for" << endl;
       for (std::list<PrimeEntry>::iterator it = m_num_val_messages.begin(); it != m_num_val_messages.end();)
       	{
           PrimeEntry& entry = *it;
 	  
 	  cout << "in the list loop" << endl;
-	  entry.factor(100000);
+	  entry.factor(10000);
+	  cout << "outta factor" << endl;
 	  entry.setCTime(MOOSTime());
 	  
       	  if (entry.done())
@@ -139,8 +141,12 @@ bool PrimeFactor::Iterate()
 	      it = m_num_val_messages.erase(it);
       	      //cout << "message gone" << endl;
       	    }
-	  else
+	  else {
+	    entry.m_started = true;
+	    entry.m_part_way += 10;
 	    ++it;
+	  }
+	  //numerical_val ++
       	}
       }
   //cout << "iterat ending" << endl;

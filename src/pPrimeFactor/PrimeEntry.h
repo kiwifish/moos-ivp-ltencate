@@ -31,8 +31,10 @@ class PrimeEntry
   uint64_t getFactor() {return m_factors.back();};
   void     setFactor(uint64_t v) {m_factors.push_back(v);};
   bool     started() {return m_factors.size() > 0;};
+  double   m_part_way;
+  bool     m_started; //I feel like I've been told we should only be accessing these through accessor methods, but since I want to write to them from different classes, shouldn't I leave them as public? 
 
- public: // these should be protected, change this later
+ protected: 
   uint64_t   m_start_index;
   uint64_t   m_orig;
   bool       m_done;
@@ -40,9 +42,7 @@ class PrimeEntry
   unsigned int m_calculated_index;
   double     m_rtime;
   double     m_ctime;
-  double     m_part_way;
-  bool       m_started;
-
+  
   std::vector<uint64_t> m_factors;
 };
 

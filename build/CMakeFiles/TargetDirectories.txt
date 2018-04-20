@@ -2,9 +2,12 @@
 /home/ltencate/moos-ivp-extend/build/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/CMakeFiles/edit_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/CMakeFiles/rebuild_cache.dir
-/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/edit_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir
+/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir
+/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir
+/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir
 /home/ltencate/moos-ivp-extend/build/src/pXRelayTest/CMakeFiles/edit_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/pXRelayTest/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/pXRelayTest/CMakeFiles/pXRelayTest.dir
@@ -17,3 +20,9 @@
 /home/ltencate/moos-ivp-extend/build/src/pOdometry/CMakeFiles/edit_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/pOdometry/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/pOdometry/CMakeFiles/pOdometry.dir
+/home/ltencate/moos-ivp-extend/build/src/pPointAssign/CMakeFiles/rebuild_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/pPointAssign/CMakeFiles/edit_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/pPointAssign/CMakeFiles/pPointAssign.dir
+/home/ltencate/moos-ivp-extend/build/src/uFldHazardMgrX/CMakeFiles/edit_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/uFldHazardMgrX/CMakeFiles/rebuild_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/uFldHazardMgrX/CMakeFiles/uFldHazardMgrX.dir

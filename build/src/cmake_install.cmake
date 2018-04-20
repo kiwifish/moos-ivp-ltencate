@@ -39,6 +39,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ltencate/moos-ivp-extend/build/src/pExampleApp/cmake_install.cmake")
   include("/home/ltencate/moos-ivp-extend/build/src/pPrimeFactor/cmake_install.cmake")
   include("/home/ltencate/moos-ivp-extend/build/src/pOdometry/cmake_install.cmake")
+  include("/home/ltencate/moos-ivp-extend/build/src/pPointAssign/cmake_install.cmake")
+  include("/home/ltencate/moos-ivp-extend/build/src/uFldHazardMgrX/cmake_install.cmake")
 
 endif()
 

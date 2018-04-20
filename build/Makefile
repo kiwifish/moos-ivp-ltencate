@@ -124,6 +124,45 @@ BHV_SimpleWaypoint/fast:
 .PHONY : BHV_SimpleWaypoint/fast
 
 #=============================================================================
+# Target rules for targets named BHV_FooBar
+
+# Build rule for target.
+BHV_FooBar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BHV_FooBar
+.PHONY : BHV_FooBar
+
+# fast build rule for target.
+BHV_FooBar/fast:
+	$(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build
+.PHONY : BHV_FooBar/fast
+
+#=============================================================================
+# Target rules for targets named BHV_Pulse
+
+# Build rule for target.
+BHV_Pulse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BHV_Pulse
+.PHONY : BHV_Pulse
+
+# fast build rule for target.
+BHV_Pulse/fast:
+	$(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build
+.PHONY : BHV_Pulse/fast
+
+#=============================================================================
+# Target rules for targets named BHV_ZigLeg
+
+# Build rule for target.
+BHV_ZigLeg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BHV_ZigLeg
+.PHONY : BHV_ZigLeg
+
+# fast build rule for target.
+BHV_ZigLeg/fast:
+	$(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build
+.PHONY : BHV_ZigLeg/fast
+
+#=============================================================================
 # Target rules for targets named pXRelayTest
 
 # Build rule for target.
@@ -175,6 +214,32 @@ pOdometry/fast:
 	$(MAKE) -f src/pOdometry/CMakeFiles/pOdometry.dir/build.make src/pOdometry/CMakeFiles/pOdometry.dir/build
 .PHONY : pOdometry/fast
 
+#=============================================================================
+# Target rules for targets named pPointAssign
+
+# Build rule for target.
+pPointAssign: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pPointAssign
+.PHONY : pPointAssign
+
+# fast build rule for target.
+pPointAssign/fast:
+	$(MAKE) -f src/pPointAssign/CMakeFiles/pPointAssign.dir/build.make src/pPointAssign/CMakeFiles/pPointAssign.dir/build
+.PHONY : pPointAssign/fast
+
+#=============================================================================
+# Target rules for targets named uFldHazardMgrX
+
+# Build rule for target.
+uFldHazardMgrX: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uFldHazardMgrX
+.PHONY : uFldHazardMgrX
+
+# fast build rule for target.
+uFldHazardMgrX/fast:
+	$(MAKE) -f src/uFldHazardMgrX/CMakeFiles/uFldHazardMgrX.dir/build.make src/uFldHazardMgrX/CMakeFiles/uFldHazardMgrX.dir/build
+.PHONY : uFldHazardMgrX/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,10 +249,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... BHV_SimpleWaypoint"
+	@echo "... BHV_FooBar"
+	@echo "... BHV_Pulse"
+	@echo "... BHV_ZigLeg"
 	@echo "... pXRelayTest"
 	@echo "... pExampleApp"
 	@echo "... pPrimeFactor"
 	@echo "... pOdometry"
+	@echo "... pPointAssign"
+	@echo "... uFldHazardMgrX"
 .PHONY : help
 
 

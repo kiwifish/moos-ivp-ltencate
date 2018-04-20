@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/ltencate/moos-ivp-extend/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -125,6 +125,51 @@ BHV_SimpleWaypoint/fast:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build
 .PHONY : BHV_SimpleWaypoint/fast
 
+# Convenience name for target.
+src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/rule:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/rule
+.PHONY : src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/rule
+
+# Convenience name for target.
+BHV_FooBar: src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/rule
+
+.PHONY : BHV_FooBar
+
+# fast build rule for target.
+BHV_FooBar/fast:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build
+.PHONY : BHV_FooBar/fast
+
+# Convenience name for target.
+src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/rule:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/rule
+.PHONY : src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/rule
+
+# Convenience name for target.
+BHV_Pulse: src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/rule
+
+.PHONY : BHV_Pulse
+
+# fast build rule for target.
+BHV_Pulse/fast:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build
+.PHONY : BHV_Pulse/fast
+
+# Convenience name for target.
+src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/rule:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/rule
+.PHONY : src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/rule
+
+# Convenience name for target.
+BHV_ZigLeg: src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/rule
+
+.PHONY : BHV_ZigLeg
+
+# fast build rule for target.
+BHV_ZigLeg/fast:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build
+.PHONY : BHV_ZigLeg/fast
+
 AOF_SimpleWaypoint.o: AOF_SimpleWaypoint.cpp.o
 
 .PHONY : AOF_SimpleWaypoint.o
@@ -151,6 +196,60 @@ AOF_SimpleWaypoint.s: AOF_SimpleWaypoint.cpp.s
 AOF_SimpleWaypoint.cpp.s:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/AOF_SimpleWaypoint.cpp.s
 .PHONY : AOF_SimpleWaypoint.cpp.s
+
+BHV_FooBar.o: BHV_FooBar.cpp.o
+
+.PHONY : BHV_FooBar.o
+
+# target to build an object file
+BHV_FooBar.cpp.o:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/BHV_FooBar.cpp.o
+.PHONY : BHV_FooBar.cpp.o
+
+BHV_FooBar.i: BHV_FooBar.cpp.i
+
+.PHONY : BHV_FooBar.i
+
+# target to preprocess a source file
+BHV_FooBar.cpp.i:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/BHV_FooBar.cpp.i
+.PHONY : BHV_FooBar.cpp.i
+
+BHV_FooBar.s: BHV_FooBar.cpp.s
+
+.PHONY : BHV_FooBar.s
+
+# target to generate assembly for a file
+BHV_FooBar.cpp.s:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/BHV_FooBar.cpp.s
+.PHONY : BHV_FooBar.cpp.s
+
+BHV_Pulse.o: BHV_Pulse.cpp.o
+
+.PHONY : BHV_Pulse.o
+
+# target to build an object file
+BHV_Pulse.cpp.o:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/BHV_Pulse.cpp.o
+.PHONY : BHV_Pulse.cpp.o
+
+BHV_Pulse.i: BHV_Pulse.cpp.i
+
+.PHONY : BHV_Pulse.i
+
+# target to preprocess a source file
+BHV_Pulse.cpp.i:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/BHV_Pulse.cpp.i
+.PHONY : BHV_Pulse.cpp.i
+
+BHV_Pulse.s: BHV_Pulse.cpp.s
+
+.PHONY : BHV_Pulse.s
+
+# target to generate assembly for a file
+BHV_Pulse.cpp.s:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/BHV_Pulse.cpp.s
+.PHONY : BHV_Pulse.cpp.s
 
 BHV_SimpleWaypoint.o: BHV_SimpleWaypoint.cpp.o
 
@@ -179,21 +278,60 @@ BHV_SimpleWaypoint.cpp.s:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/BHV_SimpleWaypoint.cpp.s
 .PHONY : BHV_SimpleWaypoint.cpp.s
 
+BHV_ZigLeg.o: BHV_ZigLeg.cpp.o
+
+.PHONY : BHV_ZigLeg.o
+
+# target to build an object file
+BHV_ZigLeg.cpp.o:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o
+.PHONY : BHV_ZigLeg.cpp.o
+
+BHV_ZigLeg.i: BHV_ZigLeg.cpp.i
+
+.PHONY : BHV_ZigLeg.i
+
+# target to preprocess a source file
+BHV_ZigLeg.cpp.i:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.i
+.PHONY : BHV_ZigLeg.cpp.i
+
+BHV_ZigLeg.s: BHV_ZigLeg.cpp.s
+
+.PHONY : BHV_ZigLeg.s
+
+# target to generate assembly for a file
+BHV_ZigLeg.cpp.s:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.s
+.PHONY : BHV_ZigLeg.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... BHV_SimpleWaypoint"
+	@echo "... BHV_FooBar"
+	@echo "... BHV_Pulse"
+	@echo "... BHV_ZigLeg"
 	@echo "... AOF_SimpleWaypoint.o"
 	@echo "... AOF_SimpleWaypoint.i"
 	@echo "... AOF_SimpleWaypoint.s"
+	@echo "... BHV_FooBar.o"
+	@echo "... BHV_FooBar.i"
+	@echo "... BHV_FooBar.s"
+	@echo "... BHV_Pulse.o"
+	@echo "... BHV_Pulse.i"
+	@echo "... BHV_Pulse.s"
 	@echo "... BHV_SimpleWaypoint.o"
 	@echo "... BHV_SimpleWaypoint.i"
 	@echo "... BHV_SimpleWaypoint.s"
+	@echo "... BHV_ZigLeg.o"
+	@echo "... BHV_ZigLeg.i"
+	@echo "... BHV_ZigLeg.s"
 .PHONY : help
 
 

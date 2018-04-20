@@ -15,8 +15,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/lib_behaviors-test/CMakeLists.txt"
   "../src/pExampleApp/CMakeLists.txt"
   "../src/pOdometry/CMakeLists.txt"
+  "../src/pPointAssign/CMakeLists.txt"
   "../src/pPrimeFactor/CMakeLists.txt"
   "../src/pXRelayTest/CMakeLists.txt"
+  "../src/uFldHazardMgrX/CMakeLists.txt"
   "/home/ltencate/moos-ivp/build/MOOS/MOOSCore/MOOSConfig.cmake"
   "/home/ltencate/moos-ivp/build/MOOS/MOOSCore/MOOSConfigVersion.cmake"
   "/home/ltencate/moos-ivp/build/MOOS/MOOSCore/UseMOOS.cmake"
@@ -55,13 +57,20 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/pExampleApp/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pPrimeFactor/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pOdometry/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/pPointAssign/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/uFldHazardMgrX/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/DependInfo.cmake"
+  "src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir/DependInfo.cmake"
+  "src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/DependInfo.cmake"
+  "src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/DependInfo.cmake"
   "src/pXRelayTest/CMakeFiles/pXRelayTest.dir/DependInfo.cmake"
   "src/pExampleApp/CMakeFiles/pExampleApp.dir/DependInfo.cmake"
   "src/pPrimeFactor/CMakeFiles/pPrimeFactor.dir/DependInfo.cmake"
   "src/pOdometry/CMakeFiles/pOdometry.dir/DependInfo.cmake"
+  "src/pPointAssign/CMakeFiles/pPointAssign.dir/DependInfo.cmake"
+  "src/uFldHazardMgrX/CMakeFiles/uFldHazardMgrX.dir/DependInfo.cmake"
   )

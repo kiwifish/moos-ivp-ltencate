@@ -1,0 +1,40 @@
+// MOOS file
+
+ServerHost = localhost
+ServerPort = 9200
+Community  = pears
+
+//------------------------------------------
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB       @ NewConsole = false
+  Run = pXRelay      @ NewConsole = true ~ pXRelay_PEARS
+  Run = pShare       @ NewConsole = true ~ pShare_PEARS
+}
+
+
+//------------------------------------------
+// Second pXRelay configuration block
+
+ProcessConfig = pXRelay_PEARS
+{
+   AppTick   = 4
+   CommsTick = 4
+ 
+   OUTGOING_VAR = PEARS
+   INCOMING_VAR = APPLES
+}
+
+
+ProcessConfig = pShare_PEARS
+ {
+   AppTick    = 4
+   CommsTick  = 4
+
+   input  = route = localhost:9201
+
+   output = src_name=PEARS, route=localhost:9200
+ }

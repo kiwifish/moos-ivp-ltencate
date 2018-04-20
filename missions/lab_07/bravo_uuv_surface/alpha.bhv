@@ -1,0 +1,206 @@
+//--------    FILE: alpha.bhv (bravo misisons)   -------------
+
+initialize   DEPLOY = false
+initialize   RETURN = false
+initialize   LOITER_REGION=west
+initialize   WAIT_REQUEST=false
+	
+//---------------------------------------------
+
+//----------------------------------------------
+Behavior=BHV_Waypoint
+{
+  name       = waypt_return
+  pwt        = 100
+  condition  = RETURN = true
+  condition  = DEPLOY = true
+  perpetual  = true
+  updates    = RETURN_UPDATE
+  endflag    = RETURN = false
+  endflag    = DEPLOY = false
+  endflag    = MISSION = complete
+	
+           speed = 2.0
+  capture_radius = 2.0
+     slip_radius = 8.0
+          points = 0, 0
+ }
+
+
+
+Behavior = BHV_Timer
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = dive                 // default
+   condition    = WAIT_REQUEST=false
+   condition    = DEPLOY=true
+   duration     = 200                  // example
+   endflag      = WAIT_REQUEST= true   // example
+   updates      = TIMER_UPDATES
+   duration_reset = WAIT_REQUEST=false // example
+   duration_idle_decay = false
+   
+   perpetual   = true
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+   // None
+
+ }
+
+Behavior = BHV_Timer
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = breathe            // default
+   condition    = DEPLOY=true
+   condition    = WAIT_REQUEST=true
+   condition    = NAV_DEPTH  < 2 // example
+   duration     = 60                   // example
+   endflag      = WAIT_REQUEST=false  // example
+   updates      = TIMER_UPDATES        // example
+   duration_reset = WAIT_REQUEST=true
+   duration_idle_decay = false
+   perpetual     = true
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+   // None
+ }
+
+
+ 
+//----------------------------------------------
+Behavior = BHV_ConstantDepth
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = const_dep_survey2   // example
+   pwt          = 100                // default
+    condition    = DEPLOY = true
+   condition    = RETURN = false
+   condition    = LOITER_REGION=east
+    endflag      = LOITER_REGION=west
+    
+
+  
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+            basewidth = 100          // default
+                depth = 10            // default
+   depth_mismatch_var = DEPTH_DIFF   // example
+             duration = no-time-limit            // default
+            peakwidth = 3            // default
+          summitdelta = 50           // default
+ }
+
+ 
+ Behavior = BHV_ConstantDepth
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = const_dep_survey1   // example
+   pwt          = 100                // default
+    condition    = DEPLOY = true
+   condition    = RETURN = false
+   condition    = LOITER_REGION=west
+    endflag      = LOITER_REGION=east
+   
+  
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+            basewidth = 100          // default
+                depth = 30            // default
+   depth_mismatch_var = DEPTH_DIFF   // example
+             duration = no-time-limit            // default
+            peakwidth = 3            // default
+          summitdelta = 50           // default
+ }
+ 
+Behavior = BHV_Loiter
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = eesh               // example
+   pwt          = 100                   // default
+   updates      = LOITER_UPDATES        // example
+   condition    = DEPLOY = true
+   condition    = RETURN = false
+   condition    = LOITER_REGION=west
+   condition    = WAIT_REQUEST=false
+   endflag      = LOITER_REGION=east
+   endflag      = RETURN = false
+   perpetual    = true
+   duration     = 150
+   duration_reset  = LOITER_REGION=west
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+        acquire_dist = 10               // default
+      capture_radius = 3                // default  
+     center_activate = false            // default
+           clockwise = false             // default
+         slip_radius = 30               // default
+               speed = 2.5              // default
+       spiral_factor = -2               // default
+
+             polygon = radial:: x=100,y=-75,radius=30,pts=8 //le
+         post_suffix = RYAN                                    
+
+
+        visual_hints = vertex_size  = 1             // default
+        visual_hints = edge_size    = 1             // default
+        visual_hints = vertex_color = dodger_blue   // default
+        visual_hints = edge_color   = white         // default
+        visual_hints = nextpt_color = yellow        // default
+        visual_hints = nextpt_lcolor = aqua         // default
+        visual_hints = nextpt_vertex_size = 5       // default
+        visual_hints = label        = eesh        // example
+ }
+
+
+Behavior = BHV_Loiter
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = ryan               // example
+   pwt          = 100                   // default
+   updates      = LOITER_UPDATES        // example
+   condition    = DEPLOY = true
+   condition    = RETURN = false
+   condition    = LOITER_REGION=east
+   condition    = WAIT_REQUEST=false
+   endflag      = LOITER_REGION=west
+   endflag      = RETURN=false
+   perpetual    = true
+   duration     = 150
+
+   duration_reset = LOITER_REGION=east
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+       
+        acquire_dist = 10               // default
+      capture_radius = 3                // default  
+     center_activate = false            // default
+           clockwise = false             // default
+         slip_radius = 20               // default
+               speed = 2.5              // default
+       spiral_factor = -2               // default
+
+             polygon = radial:: x=160,y=-50,radius=20,pts=8 //le
+         post_suffix = RYAN                                    
+
+
+        visual_hints = vertex_size  = 1             // default
+        visual_hints = edge_size    = 1             // default
+        visual_hints = vertex_color = dodger_blue   // default
+        visual_hints = edge_color   = white         // default
+        visual_hints = nextpt_color = yellow        // default
+        visual_hints = nextpt_lcolor = aqua         // default
+        visual_hints = nextpt_vertex_size = 5       // default
+        visual_hints = label        = ryan         // example
+ }

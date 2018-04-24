@@ -19,7 +19,7 @@ Processconfig = ANTLER
   Run = pHostInfo       @ NewConsole = false
   Run = pShare          @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
-  Run = pPointAssign    @ NewConsole = false
+  //Run = pPointAssign    @ NewConsole = false
   Run = uTimerScript    @ NewConsole = false
 }
 
@@ -44,7 +44,7 @@ ProcessConfig = pShare
   CommsTick  = 2
 
   input = route =  localhost:$(SHARE_LISTEN)
-  input = route =  multicast_8
+//  input = route =  multicast_8
 }
 
 //--------------------------------
@@ -80,7 +80,7 @@ ProcessConfig = uFldShoreBroker
   CommsTick     = 1
 
   QBRIDGE  = DEPLOY, NODE_REPORT, NODE_MESSAGE
-  QBRIDGE  = STATION
+  QBRIDGE  = STATION, APPCAST_REQ
   QBRIDGE  = MOOS_MANUAL_OVERRIDE
 
   BRIDGE   = src=RETURN_ALL, alias=RETURN

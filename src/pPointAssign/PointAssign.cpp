@@ -1,5 +1,5 @@
 /************************************************************/
-/*    NAME: Lauren TenCate                                  */
+/*    NAME:                                               */
 /*    ORGN: MIT                                             */
 /*    FILE: PointAssign.cpp                                        */
 /*    DATE:                                                 */
@@ -7,6 +7,7 @@
 
 #include <iterator>
 #include "MBUtils.h"
+#include "ACTable.h"
 #include "XYPoint.h"
 #include "PointAssign.h"
 
@@ -17,7 +18,7 @@ using namespace std;
 
 PointAssign::PointAssign()
 {
-  assign_by_region = false; //needs to be initialized to something
+  assign_by_region = false;
 }
 
 //---------------------------------------------------------
@@ -33,22 +34,15 @@ PointAssign::~PointAssign()
 bool PointAssign::OnNewMail(MOOSMSG_LIST &NewMail)
 {
   AppCastingMOOSApp::OnNewMail(NewMail);
+
   MOOSMSG_LIST::iterator p;
-  
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    string key  = msg.GetKey();
+    string key    = msg.GetKey();
 
-    if(key == "VISIT_POINT"){
-      Point m_point;
-      string sval = msg.GetString();
-      // std::cout << sval << std::endl;
+ 
 
-      m_travel_points.push_back(sval);
-    }
-    
 #if 0 // Keep these around just for template
-    string key   = msg.GetKey();
     string comm  = msg.GetCommunity();
     double dval  = msg.GetDouble();
     string sval  = msg.GetString(); 
@@ -57,7 +51,15 @@ bool PointAssign::OnNewMail(MOOSMSG_LIST &NewMail)
     bool   mdbl  = msg.IsDouble();
     bool   mstr  = msg.IsString();
 #endif
-  }
+
+     if(key == "VISIT_POINT"){
+       string sval = msg.GetString();
+       m_travel_points.push_back(sval);
+     }
+     
+     else if(key != "APPCAST_REQ") // handled by AppCastingMOOSApp
+       reportRunWarning("Unhandled Mail: " + key);
+   }
 	
    return(true);
 }
@@ -67,12 +69,7 @@ bool PointAssign::OnNewMail(MOOSMSG_LIST &NewMail)
 
 bool PointAssign::OnConnectToServer()
 {
-   // register for variables here
-   // possibly look at the mission file?
-   // m_MissionReader.GetConfigurationParam("Name", <string>);
-   // m_Comms.Register("VARNAME", 0);
-	
-   RegisterVariables();
+   registerVariables();
    return(true);
 }
 
@@ -83,17 +80,17 @@ bool PointAssign::OnConnectToServer()
 bool PointAssign::Iterate()
 {
   AppCastingMOOSApp::Iterate();
+  // Do your thing here!
   m_Comms.Notify("UTS_PAUSE", "false");
   
-  std::cout << m_travel_points.size() << std::endl;
-
   //message processing I'd love to do in onnewmail
   std::list<string>::iterator it;
   for (it = m_travel_points.begin(); it != m_travel_points.end();++it) {
     Point m_point;
     string sval = *it;
 
- 
+    m_Comms.Notify("STRING_VAL", sval);
+    
     vector<string> myvector = parseString(sval, ',');
     for(unsigned int i=0; i<myvector.size(); i++) {
       string param = biteStringX(myvector[i], '=');
@@ -106,80 +103,79 @@ bool PointAssign::Iterate()
 	double ydouble = atof(value.c_str());
 	m_point.setY(ydouble);
       }
-      else if(tolower(param) == "unique_id"){
+      else if(tolower(param) == "id"){
 	int idint = atoi(value.c_str());
+        m_Comms.Notify("INT", idint);
 	m_point.setID(idint);
-      }
-      
+      }      
     }
-
-    it = m_travel_points.erase(it);
-    
+    it = m_travel_points.erase(it); 
     m_points.push_back(m_point);
-
-  
   }
 
-  //
+  //message processing end 
+
+  //assign by region is false
   if (assign_by_region == false) {
 
     m_Comms.Notify("ASSIGN_BY_REGION", "false");
-    
     m_Comms.Notify("VISIT_POINT_HENRY", "firstpoint");
     m_Comms.Notify("VISIT_POINT_GILDA", "firstpoint");
 
     for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();it++) {
       
-          Point& point = *it;
-	  std::cout << point.getReport() << std::endl;
+      Point& point = *it;
+      std::cout << point.getReport() << std::endl;
 
-	  if ((point.getID() % 2) == 0) {
+      if ((point.getID() % 2) == 0) {
 	    
-	    string id = intToString(point.getID());
-	    string color = "red";
-	    postViewPoint(point.getX(),point.getY(),id,color);
-	    m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
-	  }
-	  else {
+	string id = intToString(point.getID());
+	string color = "red";
+	postViewPoint(point.getX(),point.getY(),id,color);
+	m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
+      }
+      else {
 	    
-	    string id = intToString(point.getID());
-	    string color = "blue";
-	    postViewPoint(point.getX(),point.getY(),id,color);
-	    m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
-	  }
+	string id = intToString(point.getID());
+	string color = "blue";
+	postViewPoint(point.getX(),point.getY(),id,color);
+	m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
+      }
     }
     
     m_Comms.Notify("VISIT_POINT_HENRY", "lastpoint");
     m_Comms.Notify("VISIT_POINT_GILDA", "lastpoint");
   }
 
-  else {
+
+  //assign by region is true
+  else if(assign_by_region == true) {
 
     m_Comms.Notify("ASSIGN_BY_REGION", "true");
 
     m_Comms.Notify("VISIT_POINT_HENRY", "firstpoint");
     m_Comms.Notify("VISIT_POINT_GILDA", "firstpoint");
-     for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();) {
+    for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();) {
 
-        Point& point = *it;
+      Point& point = *it;
 
-	if (point.getX() < 65) { //south
+      if (point.getX() < 65) { //south
 
-	  string id = intToString(point.getID());
-	  string color = "blue";
-	  postViewPoint(point.getX(),point.getY(),id,color);
-	  m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
-	  }
-	  else {
-	    string id = intToString(point.getID());
-	    string color = "red";
-	    postViewPoint(point.getX(),point.getY(),id,color);
-	    m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
-	  }
+	string id = intToString(point.getID());
+	string color = "blue";
+	postViewPoint(point.getX(),point.getY(),id,color);
+	m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
+      }
+      else {
+	string id = intToString(point.getID());
+	string color = "red";
+	postViewPoint(point.getX(),point.getY(),id,color);
+	m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
+      }
 	
-    m_Comms.Notify("VISIT_POINT_HENRY", "lastpoint");
-    m_Comms.Notify("VISIT_POINT_GILDA", "lastpoint");
-     }
+      m_Comms.Notify("VISIT_POINT_HENRY", "lastpoint");
+      m_Comms.Notify("VISIT_POINT_GILDA", "lastpoint");
+    }
   }
 
   AppCastingMOOSApp::PostReport();
@@ -193,40 +189,66 @@ bool PointAssign::Iterate()
 bool PointAssign::OnStartUp()
 {
   AppCastingMOOSApp::OnStartUp();
-  list<string> sParams;
+
+  STRING_LIST sParams;
   m_MissionReader.EnableVerbatimQuoting(false);
-  if(m_MissionReader.GetConfiguration(GetAppName(), sParams)) {
-    list<string>::iterator p;
-    for(p=sParams.begin(); p!=sParams.end(); p++) {
-      string line  = *p;
-      string param = tolower(biteStringX(line, '='));
-      string value = line;
-      bool bvalue;
-      
-      if(param == "assign_by_region") {
-        setBooleanOnString(bvalue,value);
-	 bool assign_by_region = bvalue;
-      }
-        
-      else if(param == "vname") {
-        //handled
-      }
+  if(!m_MissionReader.GetConfiguration(GetAppName(), sParams))
+    reportConfigWarning("No config block found for " + GetAppName());
+
+  STRING_LIST::iterator p;
+  for(p=sParams.begin(); p!=sParams.end(); p++) {
+    string orig  = *p;
+    string line  = *p;
+    string param = tolower(biteStringX(line, '='));
+    string value = line;
+    bool bvalue;
+
+    bool handled = false;
+    if(param == "assign_by_region") {
+      setBooleanOnString(bvalue,value);
+      assign_by_region = bvalue;
+      handled = true;
     }
+    else if(param == "bar") {
+      handled = true;
+    }
+
+    if(!handled)
+      reportUnhandledConfigWarning(orig);
+
   }
   
-  RegisterVariables();	
+  registerVariables();	
   return(true);
 }
 
 //---------------------------------------------------------
-// Procedure: RegisterVariables
+// Procedure: registerVariables
 
-void PointAssign::RegisterVariables()
+void PointAssign::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  Register("VISIT_POINT",0);  // Register("FOOBAR", 0);
+  Register("VISIT_POINT",0);
 }
 
+
+//------------------------------------------------------------
+// Procedure: buildReport()
+
+bool PointAssign::buildReport() 
+{
+  m_msgs << "============================================ \n";
+  m_msgs << "File:                                        \n";
+  m_msgs << "============================================ \n";
+
+  ACTable actab(4);
+  actab << "Alpha | Bravo | Charlie | Delta";
+  actab.addHeaderLines();
+  actab << "one" << "two" << "three" << "four";
+  m_msgs << actab.getFormattedString();
+
+  return(true);
+}
 
 void PointAssign::postViewPoint(double x, double y, string label, string color)
  {
@@ -240,10 +262,4 @@ void PointAssign::postViewPoint(double x, double y, string label, string color)
  }
 
 
-bool PointAssign::buildReport()
-{
-  // m_msgs << "Number of good messages: " << m_good_message_count << endl;
-  // m_msgs << "Number of bad  messages: " << m_bad_message_count  << endl;
-    
-  return(true);
-}
+

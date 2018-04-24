@@ -1,6 +1,6 @@
 #--------------------------------------------------------
 # The CMakeLists.txt for:                       pPointAssign
-# Author(s):                              Lauren TenCate
+# Author(s):                              
 #--------------------------------------------------------
 
 SET(SRC

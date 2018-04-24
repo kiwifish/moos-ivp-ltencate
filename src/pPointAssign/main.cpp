@@ -1,5 +1,5 @@
 /************************************************************/
-/*    NAME: Lauren TenCate                                              */
+/*    NAME:                                               */
 /*    ORGN: MIT                                             */
 /*    FILE: main.cpp                                        */
 /*    DATE: December 29th, 1963                             */

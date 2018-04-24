@@ -1,5 +1,5 @@
 /****************************************************************/
-/*   NAME: Lauren TenCate                                             */
+/*   NAME:                                              */
 /*   ORGN: MIT Cambridge MA                                     */
 /*   FILE: PointAssign_Info.h                                      */
 /*   DATE: Dec 29th 1963                                        */

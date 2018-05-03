@@ -70,6 +70,19 @@ Behavior = BHV_Waypoint
 }
 
 //----------------------------------------------
+Behavior = BHV_SearchFront
+{
+  name       = searchfront
+  pwt        = 100
+  condition  = MODE==ACTIVE
+ 
+}
+
+//Behavior = WallSweep
+//also finds gradient
+
+
+//----------------------------------------------
 Behavior = BHV_OpRegion
 {
   name       = opregion

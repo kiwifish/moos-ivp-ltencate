@@ -26,7 +26,7 @@ BHV_SearchFront::BHV_SearchFront(IvPDomain domain) :
   m_domain = subDomain(m_domain, "course,speed");
 
   // Add any variables this behavior needs to subscribe for
-  addInfoVars("UCTD_MSMT_REPORT, NAV_X, NAV_Y");
+  addInfoVars("UCTD_MSMNT_REPORT, NAV_X, NAV_Y");
 }
 
 //---------------------------------------------------------------
@@ -110,19 +110,7 @@ void BHV_SearchFront::onRunToIdleState()
 {
 }
 
-void BHV_SearchFront::handleMeasurementReport(std::string str){
-  vector<string> myvector2 = parseString(str, ',');
-  for(unsigned int i=0; i<myvector2.size(); i++) {
-    string param = biteString(myvector2[i], '=');
-    string value = myvector2[i];
-    if(tolower(param) == "x")
-      m_x = atof(value.c_str());
-    else if(tolower(param) == "y")
-      m_y = atof(value.c_str());
-    else if(tolower(param) == "temp")
-      m_temp = atof(value.c_str());
-  }
-}
+
 //---------------------------------------------------------------
 // Procedure: onRunState()
 //   Purpose: Invoked each iteration when run conditions have been met.
@@ -132,6 +120,28 @@ IvPFunction* BHV_SearchFront::onRunState()
   // Part 1: Build the IvP function
   IvPFunction *ipf = 0;
 
+  bool ok1;
+  bool ok2;
+
+  double xwex = getBufferDoubleVal("NAV_X", ok2);
+  postMessage("XWEX", xwex);
+  string sval = getBufferStringVal("UCTD_MSMNT_REPORT", ok1);
+  postMessage("STRING", sval);
+  handleMeasurementReport(sval);
+  postMessage("TEMP", m_temp);
+  
+
+  // if ((m_temp - m_temp_prev) > 5) {
+  //   m_wave_x =
+  //   m_wave_y =
+  //     }
+
+  //do a figure 8?
+
+  
+
+  //hang out stationary
+  
 
 
   // Part N: Prior to returning the IvP function, apply the priority wt
@@ -143,3 +153,19 @@ IvPFunction* BHV_SearchFront::onRunState()
   return(ipf);
 }
 
+void BHV_SearchFront::handleMeasurementReport(std::string str){
+  vector<string> myvector2 = parseString(str, ',');
+  for(unsigned int i=0; i<myvector2.size(); i++) {
+    string param = biteString(myvector2[i], '=');
+    string value = myvector2[i];
+    if(tolower(param) == "x"){
+      postMessage("X", m_x);
+      m_x = atof(value.c_str());}
+    else if(tolower(param) == "y"){
+      postMessage("Y", m_y);
+      m_y = atof(value.c_str());}
+    else if(tolower(param) == "temp"){
+      m_temp = atof(value.c_str());
+      postMessage("temp", m_temp);}
+  }
+}

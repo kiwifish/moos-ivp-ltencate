@@ -24,6 +24,7 @@ public:
   void         postConfigStatus();
   void         onRunToIdleState();
   void         onIdleToRunState();
+  void         handleMeasurementReport(std::string);
   IvPFunction* onRunState();
 
 protected: // Local Utility functions
@@ -31,6 +32,9 @@ protected: // Local Utility functions
 protected: // Configuration parameters
 
 protected: // State variables
+  double m_x;
+  double m_y;
+  double m_temp;
 };
 
 #define IVP_EXPORT_FUNCTION

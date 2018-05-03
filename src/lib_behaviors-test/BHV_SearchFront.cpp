@@ -26,7 +26,7 @@ BHV_SearchFront::BHV_SearchFront(IvPDomain domain) :
   m_domain = subDomain(m_domain, "course,speed");
 
   // Add any variables this behavior needs to subscribe for
-  addInfoVars("NAV_X, NAV_Y");
+  addInfoVars("UCTD_MSMT_REPORT, NAV_X, NAV_Y");
 }
 
 //---------------------------------------------------------------
@@ -110,6 +110,19 @@ void BHV_SearchFront::onRunToIdleState()
 {
 }
 
+void BHV_SearchFront::handleMeasurementReport(std::string str){
+  vector<string> myvector2 = parseString(str, ',');
+  for(unsigned int i=0; i<myvector2.size(); i++) {
+    string param = biteString(myvector2[i], '=');
+    string value = myvector2[i];
+    if(tolower(param) == "x")
+      m_x = atof(value.c_str());
+    else if(tolower(param) == "y")
+      m_y = atof(value.c_str());
+    else if(tolower(param) == "temp")
+      m_temp = atof(value.c_str());
+  }
+}
 //---------------------------------------------------------------
 // Procedure: onRunState()
 //   Purpose: Invoked each iteration when run conditions have been met.

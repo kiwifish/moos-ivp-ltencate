@@ -31,8 +31,10 @@ BHV_Pulse::BHV_Pulse(IvPDomain domain) :
   //initialize variables
   wpt_pulse = 1;
   post_time = 0;
-  posted_waypoint = 1;
+  posted_waypoint = 0;
   waypoint_new = false;
+  posted = false;
+  first_point = false;
  
 }
 
@@ -132,20 +134,25 @@ IvPFunction* BHV_Pulse::onRunState()
   m_waypoint = getBufferDoubleVal("WPT_INDEX", ok3);
 
   m_curr_time = getBufferCurrTime();
-  diff = getBufferCurrTime()-post_time;
   waypoint_new = (m_waypoint != posted_waypoint);
   
+
+  if(waypoint_new) {
+    post_time = getBufferCurrTime();
+    posted_waypoint = m_waypoint;
+    posted = false;
+    first_point = true;
+  }
+
+  diff = getBufferCurrTime()-post_time;
   postMessage("WAYPOINTZ", m_waypoint);
   postMessage("DIFFTIME", diff);
   postMessage("WAYPOINT_POST", posted_waypoint);
   postMessage("WAYPOINT_NEW", waypoint_new);
+  postMessage("FIRST", first_point);
 
-  
-  if(diff >= 20){
-    //change time on new waypoint, not post
-    //post time, but don't keep reposting
-    if(waypoint_new) {
-      posted_waypoint = m_waypoint;
+   if(diff >= 10 && !posted && first_point){
+     // posted_waypoint = m_waypoint;
       bool ok1, ok2;
       m_x = getBufferDoubleVal("NAV_X", ok1); //what is ok1?
       m_y = getBufferDoubleVal("NAV_Y", ok2); // what is ok2?
@@ -162,35 +169,34 @@ IvPFunction* BHV_Pulse::onRunState()
       
       string spec = m_pulse.get_spec();
       postMessage("VIEW_RANGE_PULSE",spec);
-    }
-    post_time = getBufferCurrTime();
-    //updates at new waypoint, but overall behavior doesn't update
+      posted = true;
+   } 
+  
+  // if(diff >= 20){
+  //   //change time on new waypoint, not post
+  //   //post time, but don't keep reposting
+  //   if(waypoint_new) {
+  //     posted_waypoint = m_waypoint;
+  //     bool ok1, ok2;
+  //     m_x = getBufferDoubleVal("NAV_X", ok1); //what is ok1?
+  //     m_y = getBufferDoubleVal("NAV_Y", ok2); // what is ok2?
+  //     m_time = getBufferCurrTime();
+      
+  //     m_pulse.set_x(m_x);
+  //     m_pulse.set_y(m_y);
+  //     m_pulse.set_time(m_time);
+      
+      
+  //     m_pulse.set_label("bhv_pulse");
+  //     m_pulse.set_color("edge", "yellow");
+  //     m_pulse.set_color("fill","yellow");
+      
+  //     string spec = m_pulse.get_spec();
+  //     postMessage("VIEW_RANGE_PULSE",spec);
+  //   }
+  //   post_time = getBufferCurrTime();
+  //   //updates at new waypoint, but overall behavior doesn't update
     
-  }
-  
-  // if (int(m_waypoint) = wpt_pulse){
-   //    if(diff >= 5) {
-	
-   // 	bool ok1, ok2;
-   // 	m_x = getBufferDoubleVal("NAV_X", ok1); // what is ok1?
-   // 	m_y = getBufferDoubleVal("NAV_Y", ok2); // what is ok2?
-   // 	m_time = getBufferCurrTime();
-  
-   // 	m_pulse.set_x(m_x);
-   // 	m_pulse.set_y(m_y);
-   // 	m_pulse.set_time(m_time);
-
-  
-   // 	m_pulse.set_label("bhv_pulse");
-   // 	m_pulse.set_color("edge", "yellow");
-   // 	m_pulse.set_color("fill","yellow");
-
-   // 	string spec = m_pulse.get_spec();
-   // 	postMessage("VIEW_RANGE_PULSE",spec);
-
-   // 	wpt_pulse = m_waypoint;
-   // 	post_time = getBufferCurrTime();
-   //    }
   // }
   
   // Part N: Prior to returning the IvP function, apply the priority wt

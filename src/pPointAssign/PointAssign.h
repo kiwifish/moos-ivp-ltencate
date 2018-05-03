@@ -42,6 +42,8 @@ class PointAssign : public AppCastingMOOSApp
  private: // State variables
    list<string> m_travel_points;
    vector<Point> m_points;
+   bool firstpoint;
+   bool lastpoint;
 };
 
 #endif 

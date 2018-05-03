@@ -19,6 +19,8 @@ using namespace std;
 PointAssign::PointAssign()
 {
   assign_by_region = false;
+  firstpoint = true;
+  lastpoint  = true;
 }
 
 //---------------------------------------------------------
@@ -55,6 +57,7 @@ bool PointAssign::OnNewMail(MOOSMSG_LIST &NewMail)
      if(key == "VISIT_POINT"){
        string sval = msg.GetString();
        m_travel_points.push_back(sval);
+       m_Comms.Notify("VISIT_POINT_CHECK", sval);
      }
      
      else if(key != "APPCAST_REQ") // handled by AppCastingMOOSApp
@@ -130,7 +133,7 @@ bool PointAssign::Iterate()
       if ((point.getID() % 2) == 0) {
 	    
 	string id = intToString(point.getID());
-	string color = "red";
+	string color = "green";
 	postViewPoint(point.getX(),point.getY(),id,color);
 	m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
       }
@@ -150,33 +153,40 @@ bool PointAssign::Iterate()
 
   //assign by region is true
   else if(assign_by_region == true) {
-
-    m_Comms.Notify("ASSIGN_BY_REGION", "true");
-
+    if(firstpoint){
     m_Comms.Notify("VISIT_POINT_HENRY", "firstpoint");
     m_Comms.Notify("VISIT_POINT_GILDA", "firstpoint");
+    firstpoint = false;
+    }
+    
     for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();) {
-
       Point& point = *it;
+      
+      if (point.getX() < 65) { 
 
-      if (point.getX() < 65) { //south
-
-	string id = intToString(point.getID());
-	string color = "blue";
-	postViewPoint(point.getX(),point.getY(),id,color);
-	m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
+  	string id = intToString(point.getID());
+  	string color = "blue";
+  	postViewPoint(point.getX(),point.getY(),id,color);
+  	m_Comms.Notify("VISIT_POINT_HENRY", point.getReport());
       }
       else {
-	string id = intToString(point.getID());
-	string color = "red";
-	postViewPoint(point.getX(),point.getY(),id,color);
-	m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
+  	string id = intToString(point.getID());
+  	string color = "red";
+  	postViewPoint(point.getX(),point.getY(),id,color);
+  	m_Comms.Notify("VISIT_POINT_GILDA", point.getReport());
       }
-	
-      m_Comms.Notify("VISIT_POINT_HENRY", "lastpoint");
-      m_Comms.Notify("VISIT_POINT_GILDA", "lastpoint");
+
+      it = m_points.erase(it); 
+
+    }
+
+    if (m_points.size() == 0 && lastpoint) {
+    m_Comms.Notify("VISIT_POINT_HENRY", "lastpoint");
+    m_Comms.Notify("VISIT_POINT_GILDA", "lastpoint");
+    lastpoint = false;
     }
   }
+  
 
   AppCastingMOOSApp::PostReport();
   return(true);
@@ -260,6 +270,5 @@ void PointAssign::postViewPoint(double x, double y, string label, string color)
    string spec = point.get_spec();
    Notify("VIEW_POINT", spec);
  }
-
 
 

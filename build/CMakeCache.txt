@@ -23,6 +23,9 @@ BHV_FooBar_LIB_DEPENDS:STATIC=general;helmivp;general;behaviors;general;ivpbuild
 BHV_Pulse_LIB_DEPENDS:STATIC=general;helmivp;general;behaviors;general;ivpbuild;general;logic;general;ivpcore;general;bhvutil;general;mbutil;general;geometry;general;m;
 
 //Dependencies for the target
+BHV_SearchFront_LIB_DEPENDS:STATIC=general;helmivp;general;behaviors;general;ivpbuild;general;logic;general;ivpcore;general;bhvutil;general;mbutil;general;geometry;general;m;
+
+//Dependencies for the target
 BHV_SimpleWaypoint_LIB_DEPENDS:STATIC=general;helmivp;general;behaviors;general;ivpbuild;general;logic;general;ivpcore;general;bhvutil;general;mbutil;general;geometry;general;m;
 
 //Dependencies for the target

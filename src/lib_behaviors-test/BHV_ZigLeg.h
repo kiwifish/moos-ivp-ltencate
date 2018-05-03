@@ -11,6 +11,7 @@
 #include <string>
 #include "IvPBehavior.h"
 #include "XYRangePulse.h"
+#include "ZAIC_PEAK.h"
 
 class BHV_Pulse : public IvPBehavior {
 public:
@@ -30,6 +31,7 @@ public:
 protected: // Local Utility functions
   IvPFunction* buildFunctionWithZAIC();
   IvPFunction* buildFunctionWithReflector();
+  IvPFunction* buildFunctionSpeed();
   
 protected: // Configuration parameters
   double m_arrival_radius;
@@ -48,7 +50,13 @@ protected: // State variables
   double post_time;
   int wpt_pulse;
   bool waypoint_new;
-  
+  double m_zig_duration;
+  double m_zig_angle;
+  bool posted;
+  double bhv_start;
+  double m_heading;
+  double m_angle;
+  bool first_waypoint;
 };
 
 #define IVP_EXPORT_FUNCTION

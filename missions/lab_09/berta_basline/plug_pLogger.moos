@@ -13,6 +13,7 @@ ProcessConfig = pLogger
 
 
   Log = IVPHELM_LIFE_EVENT @ 0 nosync
+  Log = VISIT_POINT @ 0 nosync
 
   LogAuxSrc = true
 

@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/rule:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/rule
+.PHONY : src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/rule
+
+# Convenience name for target.
+BHV_SearchFront: src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/rule
+
+.PHONY : BHV_SearchFront
+
+# fast build rule for target.
+BHV_SearchFront/fast:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build
+.PHONY : BHV_SearchFront/fast
+
+# Convenience name for target.
 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule
 .PHONY : src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule
@@ -251,6 +266,33 @@ BHV_Pulse.cpp.s:
 	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_Pulse.dir/BHV_Pulse.cpp.s
 .PHONY : BHV_Pulse.cpp.s
 
+BHV_SearchFront.o: BHV_SearchFront.cpp.o
+
+.PHONY : BHV_SearchFront.o
+
+# target to build an object file
+BHV_SearchFront.cpp.o:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o
+.PHONY : BHV_SearchFront.cpp.o
+
+BHV_SearchFront.i: BHV_SearchFront.cpp.i
+
+.PHONY : BHV_SearchFront.i
+
+# target to preprocess a source file
+BHV_SearchFront.cpp.i:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.i
+.PHONY : BHV_SearchFront.cpp.i
+
+BHV_SearchFront.s: BHV_SearchFront.cpp.s
+
+.PHONY : BHV_SearchFront.s
+
+# target to generate assembly for a file
+BHV_SearchFront.cpp.s:
+	cd /home/ltencate/moos-ivp-extend/build && $(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.s
+.PHONY : BHV_SearchFront.cpp.s
+
 BHV_SimpleWaypoint.o: BHV_SimpleWaypoint.cpp.o
 
 .PHONY : BHV_SimpleWaypoint.o
@@ -312,6 +354,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... BHV_SearchFront"
 	@echo "... rebuild_cache"
 	@echo "... BHV_SimpleWaypoint"
 	@echo "... BHV_FooBar"
@@ -326,6 +369,9 @@ help:
 	@echo "... BHV_Pulse.o"
 	@echo "... BHV_Pulse.i"
 	@echo "... BHV_Pulse.s"
+	@echo "... BHV_SearchFront.o"
+	@echo "... BHV_SearchFront.i"
+	@echo "... BHV_SearchFront.s"
 	@echo "... BHV_SimpleWaypoint.o"
 	@echo "... BHV_SimpleWaypoint.i"
 	@echo "... BHV_SimpleWaypoint.s"

@@ -3,6 +3,7 @@
 /home/ltencate/moos-ivp-extend/build/src/CMakeFiles/edit_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/edit_cache.dir
+/home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/rebuild_cache.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir
 /home/ltencate/moos-ivp-extend/build/src/lib_behaviors-test/CMakeFiles/BHV_FooBar.dir

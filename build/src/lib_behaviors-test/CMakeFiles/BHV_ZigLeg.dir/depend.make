@@ -4,10 +4,14 @@
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: ../src/lib_behaviors-test/BHV_ZigLeg.cpp
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: ../src/lib_behaviors-test/BHV_ZigLeg.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_behaviors/IvPBehavior.h
+src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/AngleUtils.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngine.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngineRoot.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYObject.h
+src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPoint.h
+src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPolygon.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYRangePulse.h
+src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYSegList.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_helmivp/BehaviorReport.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/AOF.h
 src/lib_behaviors-test/CMakeFiles/BHV_ZigLeg.dir/BHV_ZigLeg.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/BuildUtils.h

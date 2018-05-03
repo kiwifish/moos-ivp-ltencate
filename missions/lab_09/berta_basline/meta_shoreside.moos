@@ -60,6 +60,7 @@ ProcessConfig = uFldShoreBroker
   qbridge  = DEPLOY, RETURN, STATION_KEEP, NODE_REPORT, NODE_MESSAGE
   qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ, AVOID, UP_LOITER
   qbridge  = RETURN_UPDATES
+  qbridge  = VISIT_POINT
 
   bridge   = src=UP_LOITER_$N, alias=UP_LOITER
   bridge   = src=DRIFT_VECTOR_ADD, alias=DRIFT_VECTOR_ADD
@@ -205,7 +206,7 @@ ProcessConfig = uTimerScript
   pause_var = UTS_PAUSE
 
   //condition = ((UTS_PAUSE=false) and (PMV_CONNECT = 0))
-  condition = (UTS_PAUSE=false)
+  //condition = (UTS_PAUSE=false)
   //condition = (PMV_CONNECT = 0)
 
   rand_var  = varname=RND_X, min=-25,  max=200, key=at_post

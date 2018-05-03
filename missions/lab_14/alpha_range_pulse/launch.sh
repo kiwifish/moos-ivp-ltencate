@@ -1,5 +1,5 @@
 #!/bin/bash -e
-COMMUNITY="alpha_zig"
+COMMUNITY="alpha"
 
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments

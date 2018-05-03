@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named BHV_SearchFront
+
+# Build rule for target.
+BHV_SearchFront: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BHV_SearchFront
+.PHONY : BHV_SearchFront
+
+# fast build rule for target.
+BHV_SearchFront/fast:
+	$(MAKE) -f src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/build
+.PHONY : BHV_SearchFront/fast
+
+#=============================================================================
 # Target rules for targets named BHV_SimpleWaypoint
 
 # Build rule for target.
@@ -248,6 +261,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... BHV_SearchFront"
 	@echo "... BHV_SimpleWaypoint"
 	@echo "... BHV_FooBar"
 	@echo "... BHV_Pulse"

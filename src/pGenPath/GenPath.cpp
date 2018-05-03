@@ -84,9 +84,11 @@ bool GenPath::Iterate()
   
   //creating list of points
   std::list<string>::iterator it;
-  for (it = m_visit_pts_str.begin(); it != m_visit_pts_str.end();++it) {
+  for (it = m_visit_pts_str.begin(); it != m_visit_pts_str.end();) {
     Point m_point;
     string sval = *it;
+    Notify("STRING", sval);
+    
     
     vector<string> myvector = parseString(sval, ',');
     for(unsigned int i=0; i<myvector.size(); i++) {
@@ -100,39 +102,65 @@ bool GenPath::Iterate()
   	double ydouble = atof(value.c_str());
   	m_point.setY(ydouble);
       }
-      else if(tolower(param) == "unique_id"){
+      else if(tolower(param) == "id"){
   	int idint = atoi(value.c_str());
   	m_point.setID(idint);
       }
+      
     }
+
+    it = m_visit_pts_str.erase(it);
     m_points.push_back(m_point);
   }
 
-AR  //handling points now
+  //handling points now
 
   // Point bestpoint = *it;
   
-  for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();it++){
-    Point pval = *it;
+  // for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();){
+  //   Point pval = *it;
+  //   m_points_copy = m_points;
 
-  //   int min_distance = 10000;
-    
-  //   for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();it++){
-  //     Point ipval = *it;
+  //    for (std::vector<Point>::iterator it2 = m_points.begin(); it != m_points.end();){
+  //      Point close = *it2;
 
-  //     int distance = sqrt((pval.getX()-ipval.getX())^2+(pval.getY()-ipval.getY())^2)
+  //      //check distance
+  //      if(pval.getX()-close.getX() + pval.getX()-close.getX()){
+  // 	 itnew = it2;
+  //      }
+  //    }
 
-
-  // 	if (distance < min_distance) {
-  // 	  min_distance = distance;
-  // 	  bestpoint = ipval;
-  // 	}
-
-  //     m_points.
-  //   }
+  //    it add
+  //      erase;
     
     m_visit_points.add_vertex(pval.getX(), pval.getY());
-   }
+
+    
+    it = m_points.erase(it);
+    //double x =  pval.getX();
+
+    // m_visit_points.add_vertex(pval.getX(), pval.getY());
+  }
+  // //   int min_distance = 10000;
+    
+  // //   for (std::vector<Point>::iterator it = m_points.begin(); it != m_points.end();it++){
+  // //     Point ipval = *it;
+
+  // //     int distance = sqrt((pval.getX()-ipval.getX())^2+(pval.getY()-ipval.getY())^2)
+
+
+  // // 	if (distance < min_distance) {
+  // // 	  min_distance = distance;
+  // // 	  bestpoint = ipval;
+  // // 	}
+
+  // //     m_points.
+  // //   }
+    
+  //  
+  //  }
+
+  //m_visit_points.add_vertex(20, 10);
 
    string update_str = "points = ";
    update_str+= m_visit_points.get_spec();

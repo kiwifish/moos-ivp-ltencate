@@ -95,3 +95,19 @@ TARGET_LINK_LIBRARIES(BHV_ZigLeg
    mbutil 
    geometry 
    ${SYSTEM_LIBS} )
+
+#--------------------------------------------------------
+#                                      BHV_Search Front
+#--------------------------------------------------------
+ADD_LIBRARY(BHV_SearchFront SHARED 
+   BHV_SearchFront.cpp)
+TARGET_LINK_LIBRARIES(BHV_SearchFront
+   helmivp
+   behaviors 
+   ivpbuild 
+   logic 
+   ivpcore 
+   bhvutil 
+   mbutil 
+   geometry 
+   ${SYSTEM_LIBS} )

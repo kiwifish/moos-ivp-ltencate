@@ -9,6 +9,8 @@ src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o
  /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngineRoot.h
  /home/ltencate/moos-ivp/ivp/src/lib_helmivp/BehaviorReport.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/BuildUtils.h
+ /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/OF_Coupler.h
+ /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/ZAIC_PEAK.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/BoxSet.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/BoxSetNode.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/IvPBox.h

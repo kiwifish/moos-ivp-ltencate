@@ -8,6 +8,8 @@ src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /ho
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngineRoot.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_helmivp/BehaviorReport.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/BuildUtils.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/OF_Coupler.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/ZAIC_PEAK.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/BoxSet.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/BoxSetNode.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpcore/IvPBox.h

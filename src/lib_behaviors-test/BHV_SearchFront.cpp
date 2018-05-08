@@ -10,6 +10,8 @@
 #include "MBUtils.h"
 #include "BuildUtils.h"
 #include "BHV_SearchFront.h"
+#include "ZAIC_PEAK.h"
+#include "OF_Coupler.h"
 
 using namespace std;
 
@@ -17,16 +19,22 @@ using namespace std;
 // Constructor
 
 BHV_SearchFront::BHV_SearchFront(IvPDomain domain) :
-  IvPBehavior(domain)
+    IvPBehavior(domain)
 {
-  // Provide a default behavior name
-  IvPBehavior::setParam("name", "defaultname");
-
-  // Declare the behavior decision space
+  IvPBehavior::setParam("name", "searchfront");
   m_domain = subDomain(m_domain, "course,speed");
 
-  // Add any variables this behavior needs to subscribe for
-  addInfoVars("UCTD_MSMNT_REPORT, NAV_X, NAV_Y");
+  // All distances are in meters, all speed in meters per second
+  // Default values for configuration parameters 
+  m_desired_speed  = 0; 
+  m_arrival_radius = 10;
+  m_ipf_type       = "zaic";
+
+  // Default values for behavior state variables
+  m_x  = 0;
+  m_y  = 0;
+
+  addInfoVars("UCTD_MSMNT_REPORT,NAV_X, NAV_Y");
 }
 
 //---------------------------------------------------------------
@@ -47,9 +55,16 @@ bool BHV_SearchFront::setParam(string param, string val)
   else if (param == "bar") {
     // return(setBooleanOnString(m_my_bool, val));
   }
+  else if(param == "ipf_type") {
+    val = tolower(val);    
+    if((val == "zaic") || (val == "reflector")) {
+      m_ipf_type = val;
+      return(true);
+    }
 
   // If not handled above, then just return false;
   return(false);
+  }
 }
 
 //---------------------------------------------------------------
@@ -129,6 +144,8 @@ IvPFunction* BHV_SearchFront::onRunState()
   postMessage("STRING", sval);
   handleMeasurementReport(sval);
   postMessage("TEMP", m_temp);
+
+  
   
 
   // if ((m_temp - m_temp_prev) > 5) {
@@ -138,6 +155,10 @@ IvPFunction* BHV_SearchFront::onRunState()
 
   //do a figure 8?
 
+  // if ((m_temp - m_temp_prev) > 5) {
+    
+  // }
+  // m_prev_temp = m_temp;
   
 
   //hang out stationary
@@ -147,10 +168,46 @@ IvPFunction* BHV_SearchFront::onRunState()
   // Part N: Prior to returning the IvP function, apply the priority wt
   // Actual weight applied may be some value different than the configured
   // m_priority_wt, depending on the behavior author's insite.
+  if(m_ipf_type == "zaic")
+    ipf = buildFunctionWithZAIC();
   if(ipf)
     ipf->setPWT(m_priority_wt);
 
   return(ipf);
+}
+
+IvPFunction *BHV_SearchFront::buildFunctionWithZAIC() {
+  ZAIC_PEAK spd_zaic(m_domain, "speed");
+  spd_zaic.setSummit(10);
+  spd_zaic.setPeakWidth(0.5);
+  spd_zaic.setBaseWidth(1.0);
+  spd_zaic.setSummitDelta(0.8);  
+  if(spd_zaic.stateOK() == false) {
+    string warnings = "Speed ZAIC problems " + spd_zaic.getWarnings();
+    postWMessage(warnings);
+    return(0);
+  }
+  
+  // double rel_ang_to_wpt = relAng(m_osx, m_osy, m_nextpt.x(), m_nextpt.y());
+  ZAIC_PEAK crs_zaic(m_domain, "course");
+  crs_zaic.setSummit(10);
+  crs_zaic.setPeakWidth(0);
+  crs_zaic.setBaseWidth(180.0);
+  crs_zaic.setSummitDelta(0);  
+  crs_zaic.setValueWrap(true);
+  if(crs_zaic.stateOK() == false) {
+    string warnings = "Course ZAIC problems " + crs_zaic.getWarnings();
+    postWMessage(warnings);
+    return(0);
+  }
+
+  IvPFunction *spd_ipf = spd_zaic.extractIvPFunction();
+  IvPFunction *crs_ipf = crs_zaic.extractIvPFunction();
+
+  OF_Coupler coupler;
+  IvPFunction *ivp_function = coupler.couple(crs_ipf, spd_ipf, 50, 50);
+
+  return(ivp_function);
 }
 
 void BHV_SearchFront::handleMeasurementReport(std::string str){

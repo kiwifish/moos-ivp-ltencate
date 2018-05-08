@@ -28,9 +28,13 @@ public:
   IvPFunction* onRunState();
 
 protected: // Local Utility functions
+  IvPFunction* buildFunctionWithZAIC();
 
 protected: // Configuration parameters
-
+  double       m_arrival_radius;
+  double       m_desired_speed;
+  std::string  m_ipf_type;
+  
 protected: // State variables
   double m_x;
   double m_y;

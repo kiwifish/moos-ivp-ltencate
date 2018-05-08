@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC  -fPIC -g  -shared -Wl,-soname,libBHV_FooBar.so -o ../../../lib/libBHV_FooBar.so CMakeFiles/BHV_FooBar.dir/BHV_FooBar.cpp.o  -L/home/ltencate/moos-ivp/lib -lhelmivp -lbehaviors -livpbuild -llogic -livpcore -lbhvutil -lmbutil -lgeometry -lm -Wl,-rpath,/home/ltencate/moos-ivp/lib 

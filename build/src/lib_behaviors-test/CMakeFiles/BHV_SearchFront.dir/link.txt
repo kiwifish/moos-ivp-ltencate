@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC  -fPIC -g  -shared -Wl,-soname,libBHV_SearchFront.so -o ../../../lib/libBHV_SearchFront.so CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o  -L/home/ltencate/moos-ivp/lib -lhelmivp -lbehaviors -livpbuild -llogic -livpcore -lbhvutil -lmbutil -lgeometry -lm -Wl,-rpath,/home/ltencate/moos-ivp/lib 

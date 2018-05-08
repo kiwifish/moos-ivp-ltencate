@@ -4,8 +4,13 @@
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: ../src/lib_behaviors-test/BHV_SearchFront.cpp
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: ../src/lib_behaviors-test/BHV_SearchFront.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_behaviors/IvPBehavior.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/AngleUtils.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngine.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngineRoot.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYObject.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPoint.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPolygon.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYSegList.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_helmivp/BehaviorReport.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/BuildUtils.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/OF_Coupler.h
@@ -20,6 +25,8 @@ src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /ho
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_logic/InfoBuffer.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_logic/LogicCondition.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_logic/ParseNode.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_mbutil/ColorPack.h
+src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
 src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o: /home/ltencate/moos-ivp/ivp/src/lib_mbutil/VarDataPair.h
 

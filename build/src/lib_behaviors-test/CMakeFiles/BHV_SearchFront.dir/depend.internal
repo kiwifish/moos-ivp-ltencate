@@ -5,8 +5,13 @@ src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o
  /home/ltencate/moos-ivp-extend/src/lib_behaviors-test/BHV_SearchFront.cpp
  /home/ltencate/moos-ivp-extend/src/lib_behaviors-test/BHV_SearchFront.h
  /home/ltencate/moos-ivp/ivp/src/lib_behaviors/IvPBehavior.h
+ /home/ltencate/moos-ivp/ivp/src/lib_geometry/AngleUtils.h
  /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngine.h
  /home/ltencate/moos-ivp/ivp/src/lib_geometry/CPAEngineRoot.h
+ /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYObject.h
+ /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPoint.h
+ /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYPolygon.h
+ /home/ltencate/moos-ivp/ivp/src/lib_geometry/XYSegList.h
  /home/ltencate/moos-ivp/ivp/src/lib_helmivp/BehaviorReport.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/BuildUtils.h
  /home/ltencate/moos-ivp/ivp/src/lib_ivpbuild/OF_Coupler.h
@@ -21,5 +26,7 @@ src/lib_behaviors-test/CMakeFiles/BHV_SearchFront.dir/BHV_SearchFront.cpp.o
  /home/ltencate/moos-ivp/ivp/src/lib_logic/InfoBuffer.h
  /home/ltencate/moos-ivp/ivp/src/lib_logic/LogicCondition.h
  /home/ltencate/moos-ivp/ivp/src/lib_logic/ParseNode.h
+ /home/ltencate/moos-ivp/ivp/src/lib_mbutil/ColorPack.h
+ /home/ltencate/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
  /home/ltencate/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
  /home/ltencate/moos-ivp/ivp/src/lib_mbutil/VarDataPair.h

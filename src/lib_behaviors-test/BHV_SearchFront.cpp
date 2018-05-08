@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include "MBUtils.h"
 #include "BuildUtils.h"
+#include "AngleUtils.h"
 #include "BHV_SearchFront.h"
 #include "ZAIC_PEAK.h"
 #include "OF_Coupler.h"
@@ -33,6 +34,11 @@ BHV_SearchFront::BHV_SearchFront(IvPDomain domain) :
   // Default values for behavior state variables
   m_x  = 0;
   m_y  = 0;
+  post_time = 0;
+  m_new_x = 0;
+  m_prev_x = 0;
+  m_new_y = 50;
+  m_prev_y = 0;
 
   addInfoVars("UCTD_MSMNT_REPORT,NAV_X, NAV_Y");
 }
@@ -139,31 +145,50 @@ IvPFunction* BHV_SearchFront::onRunState()
   bool ok2;
 
   double xwex = getBufferDoubleVal("NAV_X", ok2);
-  postMessage("XWEX", xwex);
   string sval = getBufferStringVal("UCTD_MSMNT_REPORT", ok1);
-  postMessage("STRING", sval);
   handleMeasurementReport(sval);
-  postMessage("TEMP", m_temp);
+
+  temps.push_back(m_temp);
+  x_cords.push_back(m_x);
+  y_cords.push_back(m_y);
+
+  //feed this data into a list
+  //check the agaisnt the beginning of the list
+  //clear point when necessary
+
+  postMessage("FIRST_TEMP",temps.front());
+  postMessage("CURRENT_TEMP", m_temp);
+  postMessage("XX", x_cords.front());
+  postMessage("YY", y_cords.front());
+  
+  if ((m_temp - temps.front()) > 3){
+      postMessage("LOOP", "true");
+      bool ok1;
+      
+      m_new_x = m_x;
+      m_prev_x = x_cords.front();
+      postMessage("NEW_X", m_new_x);
+      postMessage("PREV_X", m_prev_x);
+      m_new_y = m_y;
+      m_prev_y = y_cords.front();
+      postMessage("NEW_Y", m_new_y);
+      postMessage("PREV_Y", m_prev_x);
+
+      postMessage("LOOP", "false");
+      
+       temps.clear();
+      // postMessage("TEMP_FRONT", temps.front());
+      x_cords.clear();
+      y_cords.clear();
+      
+  }
+
+  std::list<double>::iterator it;
+  for (it=temps.begin(); it!=temps.end(); ++it)
+    postMessage("UGH", *it);
 
   
-  
-
-  // if ((m_temp - m_temp_prev) > 5) {
-  //   m_wave_x =
-  //   m_wave_y =
-  //     }
-
-  //do a figure 8?
-
-  // if ((m_temp - m_temp_prev) > 5) {
-    
-  // }
-  // m_prev_temp = m_temp;
-  
-
-  //hang out stationary
-  
-
+     // realtime -> prev
 
   // Part N: Prior to returning the IvP function, apply the priority wt
   // Actual weight applied may be some value different than the configured
@@ -188,9 +213,10 @@ IvPFunction *BHV_SearchFront::buildFunctionWithZAIC() {
     return(0);
   }
   
-  // double rel_ang_to_wpt = relAng(m_osx, m_osy, m_nextpt.x(), m_nextpt.y());
+  double rel_ang_to_wpt = relAng(m_new_x, m_new_y, m_prev_x, m_prev_y);
+  postMessage("RELANG", rel_ang_to_wpt);
   ZAIC_PEAK crs_zaic(m_domain, "course");
-  crs_zaic.setSummit(10);
+  crs_zaic.setSummit(rel_ang_to_wpt);
   crs_zaic.setPeakWidth(0);
   crs_zaic.setBaseWidth(180.0);
   crs_zaic.setSummitDelta(0);  

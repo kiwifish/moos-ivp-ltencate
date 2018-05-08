@@ -9,6 +9,7 @@
 #define SearchFront_HEADER
 
 #include <string>
+#include <list>
 #include "IvPBehavior.h"
 
 class BHV_SearchFront : public IvPBehavior {
@@ -36,9 +37,20 @@ protected: // Configuration parameters
   std::string  m_ipf_type;
   
 protected: // State variables
+  double diff;
   double m_x;
   double m_y;
+  double m_prev_x;
+  double m_prev_y;
+  double m_prev_temp;
+  double m_new_x;
+  double m_new_y;
   double m_temp;
+  double post_time;
+
+  list<double> temps;
+  list<double> x_cords;
+  list<double> y_cords;
 };
 
 #define IVP_EXPORT_FUNCTION

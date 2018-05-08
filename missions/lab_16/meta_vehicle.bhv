@@ -73,7 +73,7 @@ Behavior = BHV_Waypoint
 Behavior = BHV_SearchFront
 {
   name       = searchfront
-  pwt        = 100
+  pwt        = 500
   condition  = MODE==ACTIVE
  
 }

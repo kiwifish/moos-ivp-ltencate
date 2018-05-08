@@ -67,7 +67,10 @@ nsplug meta_vehicle.moos targ_$VNAME.moos -f WARP=$TIME_WARP  \
    VPORT="9001"       SHARE_LISTEN="9301"                      \
    VTYPE=KAYAK          COOL_FAC=$COOL_FAC  COOL_STEPS=$COOL_STEPS\
    CONCURRENT=$CONCURRENT  ADAPTIVE=$ADAPTIVE \
-   HOSTIP_FORCE=localhost  SHORE_LISTEN="9300"
+   HOSTIP_FORCE=localhost  SHORE_LISTEN="9300" \
+   SHORE_IP=localhost
+
+
 
 nsplug meta_vehicle.bhv targ_$VNAME.bhv -f VNAME=$VNAME      \
     START_POS=$START_POS SURVEY_X=$SURVEY_X SURVEY_Y=$SURVEY_Y \

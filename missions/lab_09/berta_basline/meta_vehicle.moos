@@ -29,7 +29,7 @@ Processconfig = ANTLER
   Run = pHostInfo        @ NewConsole = false
   Run = uFldNodeBroker   @ NewConsole = false
   Run = uLoadWatch       @ NewConsole = false
-  Run = pGenPath         @ NewConsole = false
+  //Run = pGenPath         @ NewConsole = false
 }
 
 ProcessConfig = pGenPath

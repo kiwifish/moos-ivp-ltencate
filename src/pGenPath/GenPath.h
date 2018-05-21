@@ -34,13 +34,19 @@ class GenPath : public AppCastingMOOSApp
 
  protected:
    void registerVariables();
+   void closePoints();
+   // Point closePointsNew(Point pt);
 
  private: // Configuration variables
 
  private:
     list<string> m_visit_pts_str; 
     vector<Point> m_points; 
-    XYSegList m_visit_points; // State variables 
+    XYSegList m_visit_points; // State variables
+    double currentbest;
+    double dist;
+    double m_x;
+    double m_y;
 };
 
 #endif 

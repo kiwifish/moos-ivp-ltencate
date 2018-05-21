@@ -30,6 +30,7 @@ Processconfig = ANTLER
 //#include plug_uFldCTDSensor.moos
 #include plug_uFldCTDSensor_1.moos
 #include plug_pLogger.moos
+#include plug_pHostInfo.moos
 //--------------------------------------------------
 // pGradeFrontEstiamte Configuration Block
 
@@ -40,16 +41,7 @@ ProcessConfig = pGradeFrontEstimate
 
 }
 
-//--------------------------------------------------
-// pHostInfo configuration block from plugin
-
-ProcessConfig = pHostInfo
-{
-  AppTick 	= 1
-  CommsTick 	= 1
-
-  DEFAULT_HOSTIP = $(HOSTIP_FORCE)
-}
+//------------------------------------------------
 
 
 //--------------------------------------------------
